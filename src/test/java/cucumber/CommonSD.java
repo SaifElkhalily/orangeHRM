@@ -2,8 +2,10 @@ package cucumber;
 
 import base.InitiateDriver;
 import io.cucumber.java.en.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.AddUserPage;
 import pages.AdminPage;
 import pages.HomePage;
@@ -18,7 +20,13 @@ public class CommonSD{
 
     public CommonSD() {
         System.setProperty("webdriver.chrome.driver", "browser/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        // Create ChromeOptions instance
+        ChromeOptions options = new ChromeOptions();
+        // Add the maximized argument
+        options.addArguments("--start-maximized");
+        // Initialize WebDriver with options
+         WebDriverManager.chromedriver().setup();
+         WebDriver driver = new ChromeDriver(options);
         loginPage = new LoginPage(driver);
         initiateDriver = new InitiateDriver(driver);
         homePage = new HomePage(driver);
@@ -30,6 +38,7 @@ public class CommonSD{
     @Given("Initiate Chrome Browser and navigate to {string}")
     public void userOpensChrome (String URL) {
         initiateDriver.SetUp(URL);
+        //initiateDriver.closeSession();
     }
 
     @Given("User Login by entering their Username {string} and Password {string} then clicks on Login")
