@@ -103,6 +103,4 @@ public class CommonPo {
         return numberOfRecords.size();
     }
 
-    @FindBy(xpath = "//a[@href='/web/index.php/admin/viewAdminModule']")
-    public WebElement admin;
 }

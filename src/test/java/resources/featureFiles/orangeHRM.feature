@@ -21,6 +21,7 @@ Feature: I want to Login to orangeHRM
       And Get the number of records found
       And Get the recent count of Users
       Then Verify that the number of Users increased by 1
+      And Close the session and the browser
 
     Scenario: TC02 | Search for user | Delete that user | Verify the number of users decreased by 1
       When Admin searches for a user with the user name "QA Automation"
@@ -29,3 +30,4 @@ Feature: I want to Login to orangeHRM
       And Get the number of records found
       And Get the recent count of Users
       Then Verify that the number of Users decreased by 1
+      And Close the session and the browser

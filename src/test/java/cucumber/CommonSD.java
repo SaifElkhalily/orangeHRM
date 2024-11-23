@@ -38,7 +38,11 @@ public class CommonSD{
     @Given("Initiate Chrome Browser and navigate to {string}")
     public void userOpensChrome (String URL) {
         initiateDriver.SetUp(URL);
-        //initiateDriver.closeSession();
+    }
+
+    @Given("Close the session and the browser")
+    public void close(){
+        initiateDriver.closeSession();
     }
 
     @Given("User Login by entering their Username {string} and Password {string} then clicks on Login")
@@ -69,7 +73,7 @@ public class CommonSD{
             "Username {string}," +
             "Password {string}," +
             "Confirm Password {string} then clicks on Save")
-    public void adminAddingNewUser(String UserRole , String Status , String EmployeeName , String SelectName , String Username , String Password , String ConfirmPass) throws InterruptedException {
+    public void adminAddingNewUser(String UserRole , String Status , String EmployeeName , String SelectName , String Username , String Password , String ConfirmPass) {
         addUserPage.addingNewUser(UserRole,Status,EmployeeName, SelectName ,Username,Password, ConfirmPass);
     }
 
