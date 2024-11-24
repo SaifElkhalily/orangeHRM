@@ -16,7 +16,7 @@ Feature: I want to Login to orangeHRM
 
     Scenario: TC01 | Add new user| Verify the number of users increase by 1
       When Admin clicks on Add to add a new user
-      And Admin adds new user and fills the required data User Role "Admin",Status "Enabled",Employee name "Test",Select Employee "sww  test",Username "QA Automation",Password "s1234567",Confirm Password "s1234567" then clicks on Save
+      And Admin adds new user and fills the required data User Role "Admin",Status "Enabled",Employee name "sww",Select Employee "sww  test",Username "QA Automation",Password "s1234567",Confirm Password "s1234567" then clicks on Save
       Then Refresh the Admin page
       And Get the number of records found
       And Get the recent count of Users
